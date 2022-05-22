@@ -1,0 +1,35 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class tab_faculties {
+   faculty: varchar(255)
+   id: int(11)
+}
+class tab_persons {
+   first_name: varchar(200)
+   last_name: varchar(200)
+   id: int(11)
+}
+class tab_students {
+   person_id: int(11)
+   faculty_id: int(11)
+   id: int(11)
+}
+class tab_subjects {
+   subject: varchar(255)
+   id: int(11)
+}
+class tab_teachers {
+   person_id: int(11)
+   subject_id: int(11)
+   id: int(11)
+}
+
+tab_students   -[#595959,plain]-^  tab_faculties : "faculty_id:id"
+tab_students   -[#595959,plain]-^  tab_persons   : "person_id:id"
+tab_teachers   -[#595959,plain]-^  tab_persons   : "person_id:id"
+tab_teachers   -[#595959,plain]-^  tab_subjects  : "subject_id:id"
+@enduml
