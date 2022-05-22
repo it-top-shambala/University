@@ -18,5 +18,8 @@
                Style="{StaticResource StyleLabelName}"/>
         <Label x:Name="LabelFaculty"
                Style="{StaticResource StyleLabelFaculty}"/>
+        <Button x:Name="ButtonMore"
+                Content="Подробнее..."
+                Click="ButtonMore_OnClick"/>
     </StackPanel>
 </UserControl>

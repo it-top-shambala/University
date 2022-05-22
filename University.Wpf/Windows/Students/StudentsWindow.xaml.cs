@@ -2,7 +2,7 @@
 using University.DataBase;
 using University.Wpf.Components.StudentCard;
 
-namespace University.Wpf.Windows.Student;
+namespace University.Wpf.Windows.Students;
 
 public partial class StudentsWindow : Window
 {

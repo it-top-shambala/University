@@ -18,4 +18,15 @@ public static class DB
         var students = db.Query<Student>(sql);
         return students;
     }
+
+    public static Student GetStudent(int id)
+    {
+        Dapper.DefaultTypeMap.MatchNamesWithUnderscores = true;
+        
+        using var db = new MySqlConnection(_conn);
+        db.Open();
+        var sql = $"SELECT tab_students.id AS 'id', person_id, first_name, last_name, faculty_id, faculty FROM tab_students JOIN tab_persons ON tab_persons.id = tab_students.person_id JOIN tab_faculties ON tab_faculties.id = tab_students.faculty_id WHERE tab_students.id = {id};";
+        var student = db.QuerySingle<Student>(sql);
+        return student;
+    }
 }
